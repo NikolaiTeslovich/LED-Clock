@@ -44,6 +44,8 @@ while True:
 
     gettime()
 
+    d = 0
+
     while d < 4:
 
         GPIO.output(digs[d], True)
