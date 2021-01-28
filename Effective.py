@@ -35,7 +35,6 @@ GPIO.setmode(GPIO.BCM)
 
 # initialize the led digits and segments as outputs
 GPIO.setup(segs, GPIO.OUT)
-GPIO.setup(digs, GPIO.OUT)
 
 # initialize the middle led second blinker
 GPIO.setup(blink, GPIO.OUT)
@@ -58,6 +57,8 @@ def digoff(digit):
 
 def gettime():
     return time.strftime("%H%M", time.localtime())
+
+    GPIO.output(segs, bool(num[1]))
 
 while True:
 
@@ -84,6 +85,8 @@ while True:
 
             elif i == 3:
                 dig = dig4
+
+
 
 
             if actual_time[i] == '0':
