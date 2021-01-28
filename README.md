@@ -1,2 +1,2 @@
 # LED-Clock
-All things relating to a Raspberry Pi powered 4 digit display with a separator.
+All things relating to a Raspberry Pi Zero W powered clock that I tediously soldered by hand!
