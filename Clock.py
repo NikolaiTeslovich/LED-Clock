@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 import RPi.GPIO as GPIO
 import time
 
 #GPIO.cleanup()
-
-
-# In[2]:
 
 
 # define the segment pins for the led segment
@@ -47,10 +42,6 @@ dig4 = 12
 # define the pin for the blinker
 blink = 18
 
-
-# In[3]:
-
-
 # disable annoying warnings
 GPIO.setwarnings(False)
 
@@ -75,12 +66,8 @@ GPIO.setup(dig4, GPIO.OUT)
 # initialize the middle led second blinker
 GPIO.setup(blink, GPIO.OUT)
 
-
-# In[4]:
-
-
 def zero(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, True)
     GPIO.output(seg3, True)
@@ -88,11 +75,11 @@ def zero(digit):
     GPIO.output(seg5, True)
     GPIO.output(seg6, True)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
-    
+
 def one(digit):
-    
+
     GPIO.output(seg1, False)
     GPIO.output(seg2, False)
     GPIO.output(seg3, True)
@@ -100,11 +87,11 @@ def one(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, True)
     GPIO.output(seg7, False)
-    
+
     GPIO.output(digit, True)
-    
+
 def two(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, False)
     GPIO.output(seg3, True)
@@ -112,14 +99,11 @@ def two(digit):
     GPIO.output(seg5, True)
     GPIO.output(seg6, False)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
 
-#defining 3  
-    
-    
 def three(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, False)
     GPIO.output(seg3, True)
@@ -127,11 +111,11 @@ def three(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, True)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
-    
+
 def four(digit):
-    
+
     GPIO.output(seg1, False)
     GPIO.output(seg2, True)
     GPIO.output(seg3, True)
@@ -139,11 +123,11 @@ def four(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, True)
     GPIO.output(seg7, False)
-    
+
     GPIO.output(digit, True)
-    
+
 def five(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, True)
     GPIO.output(seg3, False)
@@ -151,11 +135,11 @@ def five(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, True)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
-    
+
 def six(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, True)
     GPIO.output(seg3, False)
@@ -163,11 +147,11 @@ def six(digit):
     GPIO.output(seg5, True)
     GPIO.output(seg6, True)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
-    
+
 def seven(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, False)
     GPIO.output(seg3, True)
@@ -175,11 +159,11 @@ def seven(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, True)
     GPIO.output(seg7, False)
-    
+
     GPIO.output(digit, True)
-    
+
 def eight(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, True)
     GPIO.output(seg3, True)
@@ -187,11 +171,11 @@ def eight(digit):
     GPIO.output(seg5, True)
     GPIO.output(seg6, True)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
-    
+
 def nine(digit):
-    
+
     GPIO.output(seg1, True)
     GPIO.output(seg2, True)
     GPIO.output(seg3, True)
@@ -199,19 +183,15 @@ def nine(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, True)
     GPIO.output(seg7, True)
-    
+
     GPIO.output(digit, True)
-    
+
 def blink(boolean):
-    
+
     GPIO.output(18, boolean)
 
-
-# In[5]:
-
-
 def digoff(digit):
-    
+
     GPIO.output(seg1, False)
     GPIO.output(seg2, False)
     GPIO.output(seg3, False)
@@ -219,56 +199,38 @@ def digoff(digit):
     GPIO.output(seg5, False)
     GPIO.output(seg6, False)
     GPIO.output(seg7, False)
-    
+
     GPIO.output(digit, False)
 
-
-# In[6]:
-
-
 def gettime():
-    
+
     current_time = []
     t = time.localtime()
     start = time.time()
     current_time = time.strftime("%H%M%S", t)
     return current_time
 
-
-# In[7]:
-
-
 actual_time = gettime()
 
-
-# In[8]:
-
-
-actual_time
-
-
-# In[ ]:
-
-
 while True:
-    
+
     i = 0
-    
+
     j = 0
-    
+
     dig = 0
-    
+
     actual_time = gettime()
-    
+
     while j < 1000:
-        
+
 
         while i < 4:
-        
+
             if i == 0:
                 dig = dig1
 
-            elif i == 1: 
+            elif i == 1:
                 dig = dig2
 
             elif i == 2:
@@ -276,59 +238,52 @@ while True:
 
             elif i == 3:
                 dig = dig4
-                
+
 
             if actual_time[i] == '0':
                 zero(dig)
-    
-            elif actual_time[i] == '1':       
+
+            elif actual_time[i] == '1':
                 one(dig)
-    
-            elif actual_time[i] == '2': 
+
+            elif actual_time[i] == '2':
                 two(dig)
-    
+
             elif actual_time[i] == '3':
                 three(dig)
 
-            elif actual_time[i] == '4':    
+            elif actual_time[i] == '4':
                 four(dig)
-    
-            elif actual_time[i] == '5':  
+
+            elif actual_time[i] == '5':
                 five(dig)
-    
+
             elif actual_time[i] == '6':
                 six(dig)
-    
-            elif actual_time[i] == '7':    
+
+            elif actual_time[i] == '7':
                 seven(dig)
-    
+
             elif actual_time[i] == '8':
                 eight(dig)
-    
+
             elif actual_time[i] == '9':
                 nine(dig)
-                
-            
+
+
             if int(actual_time[5]) % 2 == 0:
                 blink(True)
-                
+
             elif int(actual_time[5]) % 2 == 1:
                 blink(False)
-        
+
             time.sleep(0.001)
-        
+
             digoff(dig)
-            
+
             i += 1
-            
+
         j += 1
-    
-    
-    
-
-
-# In[ ]:
-
 
 zero(dig)
 
@@ -336,15 +291,4 @@ time.sleep(0.1)
 
 digoff(dig)
 
-
-# In[ ]:
-
-
 int(actual_time[5]) % 2 == 0
-
-
-# In[ ]:
-
-
-
-
