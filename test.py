@@ -1,12 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 
-# disable annoying warnings
-GPIO.setwarnings(False)
-
-# this is the current numbering layout
-GPIO.setmode(GPIO.BCM)
-
 # define the segments, digits, and numbers
 segs = [22, 4, 19, 6, 17, 13, 26]
 digs = [23, 24, 25, 12]
@@ -25,6 +19,12 @@ num = {0:[True, True, True, False, True, True, True],
 off = [False, False, False, False, False, False, False]
 
 blink = 18
+
+# this is the current numbering layout
+GPIO.setmode(GPIO.BCM)
+
+# disable annoying warnings
+GPIO.setwarnings(False)
 
 # initialize the led digits and segments as outputs
 GPIO.setup(segs, GPIO.OUT)
