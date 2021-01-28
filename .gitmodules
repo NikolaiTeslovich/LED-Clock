@@ -1,0 +1,3 @@
+[submodule "autoreload"]
+	path = autoreload
+	url = https://github.com/stevekrenzel/autoreload.git
