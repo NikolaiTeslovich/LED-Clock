@@ -220,7 +220,7 @@ while True:
 
     actual_time = gettime()
 
-    while j < 500:
+    while j < 400:
 
         while i < 4:
 
@@ -273,7 +273,7 @@ while True:
             elif int(actual_time[5]) % 2 == 1:
                 blink(False)
 
-            time.sleep(0.002)
+            time.sleep(0.0025)
 
             digoff(dig)
 
