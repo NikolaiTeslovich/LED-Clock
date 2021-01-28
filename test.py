@@ -36,8 +36,6 @@ def gettime():
 
 timestr = gettime()
 
-GPIO.output(segs, num[1])
-
 while True:
 
     GPIO.cleanup()
