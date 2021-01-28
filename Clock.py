@@ -270,14 +270,13 @@ while True:
             elif actual_time[i] == '9':
                 nine(dig)
 
-
             if int(actual_time[5]) % 2 == 0:
                 blink(True)
 
             elif int(actual_time[5]) % 2 == 1:
                 blink(False)
 
-            time.sleep(0.001)
+           # time.sleep(0.002)
 
             digoff(dig)
 
@@ -285,10 +284,3 @@ while True:
 
         j += 1
 
-zero(dig)
-
-time.sleep(0.1)
-
-digoff(dig)
-
-int(actual_time[5]) % 2 == 0
